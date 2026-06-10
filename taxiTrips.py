@@ -10,9 +10,7 @@ spark = (SparkSession.builder.appName("NYC Taxi Trips Analysis").getOrCreate())
 
 print("Cargando datos")
 
-df = spark.read.parquet(
-    "s3a://hdfs-hadoop-dquinones/taxi/*.parquet"
-)
+df = spark.read.parquet("hdfs:///user/hadoop/taxi/*.parquet")
 
 print(f"Total registros: {df.count()}")
 
